@@ -16,6 +16,7 @@ import React from "react";
 function App() {
   const month = getToday().substring(0, 7);
   const [user, setUser] = useState<IUser | null | void>(null);
+
   useEffect(() => {
     getUserEndpoint().then(setUser, onSignOut);
   }, []);
