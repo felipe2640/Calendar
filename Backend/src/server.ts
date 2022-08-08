@@ -7,15 +7,13 @@ import session from "express-session";
 import * as dotenv from "dotenv";
 import { iEnv, iUSer } from "./models/models";
 
-dotenv.config({ path: __dirname + "./../.env" });
-
 const server = jsonServer.create();
-
 const router = jsonServer.router(__dirname + "/json/db.json");
 const userdb = JSON.parse(
   fs.readFileSync(__dirname + "/json/users.json", { encoding: "utf-8" })
 );
 
+dotenv.config({ path: __dirname + "./../.env" });
 server.use(jsonServer.defaults());
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(bodyParser.json());
