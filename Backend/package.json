@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start-noauth": "node server.js noauth",
+    "start-noauth": "ts-node ./src/server.ts noauth",
     "start": "ts-node ./src/server.ts",
     "dev": "nodemon"
   },
