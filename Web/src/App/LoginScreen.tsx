@@ -18,7 +18,9 @@ function LoginScreen(props: ILoginScreenProps) {
     evt.preventDefault();
     // console.log(email, password);
     signInEndpoint(email, password).then(props.onSignIn, (e) => {
-      setError("E-mail não encontrado ou senha incorreta");
+      setError(
+        "E-mail não encontrado ou senha incorreta. Tente email: felipe@email.com password: 1234"
+      );
       console.error(e);
     });
   }
