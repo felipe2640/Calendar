@@ -1,4 +1,4 @@
-import { IEvent, ICalendar, IEditingEvent } from "./backend";
+import { IEvent, ICalendar, IEditingEvent } from "./../Helpers/backend";
 
 export interface ICalendarScreenState {
   calendars: ICalendar[];

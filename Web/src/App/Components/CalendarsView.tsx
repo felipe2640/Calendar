@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 
-import { ICalendar } from "./backend";
+import { ICalendar } from "./../Helpers/backend";
 import { ICalendarScreenAction } from "./calendarScreenReducer";
 
 interface ICalendarViewProps {

@@ -8,8 +8,8 @@ import Logout from "@mui/icons-material/Logout";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import Box from "@mui/material/Box";
 
-import { signOutEndpoint } from "./backend";
-import { useAuthContext } from "./authContext";
+import { signOutEndpoint } from "./../Helpers/backend";
+import { useAuthContext } from "./../Helpers/authContext";
 
 export function UserMenu() {
   const { user, onSignOut } = useAuthContext();

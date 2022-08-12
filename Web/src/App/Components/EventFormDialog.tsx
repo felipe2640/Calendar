@@ -15,7 +15,7 @@ import {
   ICalendar,
   IEditingEvent,
   updateEventEndpoint,
-} from "./backend";
+} from "./../Helpers/backend";
 
 interface IEventForDialogProps {
   event: IEditingEvent | null;

@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Alert from "@mui/material/Alert";
 import { useState } from "react";
 import Button from "@mui/material/Button";
-import { IUser, signInEndpoint } from "./backend";
+import { IUser, signInEndpoint } from "./../Helpers/backend";
 
 interface ILoginScreenProps {
   onSignIn: (user: IUser) => void;

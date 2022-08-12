@@ -9,7 +9,7 @@ import Button from "@mui/material/Button";
 import { styled } from "@mui/material";
 import WatchLaterIcon from "@mui/icons-material/WatchLater";
 
-import { IEvent, ICalendar } from "./backend";
+import { IEvent, ICalendar } from "./../Helpers/backend";
 import React from "react";
 import { ICalendarScreenAction } from "./calendarScreenReducer";
 

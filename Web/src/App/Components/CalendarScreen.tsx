@@ -9,14 +9,15 @@ import {
   IEvent,
   ICalendar,
   getCalendarEndpoint,
-} from "./backend";
+} from "../Helpers/backend";
 
 import { CalendarsView } from "./CalendarsView";
 import { CalendarHeader } from "./CalendarHeader";
 import { Calendar, ICalendarCell, IEventWithCalendar } from "./Calendar";
 import EventFormDialog from "./EventFormDialog";
-import { getToday } from "./dateFunctions";
+import { getToday } from "../Helpers/dateFunctions";
 import { reducer } from "./calendarScreenReducer";
+import React from "react";
 
 function useCalendarScreenState(month: string) {
   const [state, dispatch] = useReducer(reducer, {

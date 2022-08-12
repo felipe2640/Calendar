@@ -5,7 +5,7 @@ import IconButton from "@mui/material/IconButton";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 
-import { formatMonth, addMonths } from "./dateFunctions";
+import { formatMonth, addMonths } from "../Helpers/dateFunctions";
 import { UserMenu } from "./UserMenu";
 import React from "react";
 
