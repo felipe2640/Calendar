@@ -17,10 +17,17 @@ export interface IEvent extends IEditingEvent {
 }
 
 export interface IUser {
-  name: string;
   email: string;
+  name: string;
+  token: string;
+  authorId: string;
 }
 
+export interface ICreateUser {
+  name: string;
+  email: string;
+  password: string;
+}
 export const configBackend: string = process.env
   .REACT_APP_CONFIGURATION_BACKEND as string;
 
@@ -49,7 +56,7 @@ export function createEventEndpoint(event: IEditingEvent): Promise<IEvent> {
 }
 
 export function updateEventEndpoint(event: IEditingEvent): Promise<IEvent> {
-  return fetch(`${configBackend}events/${event.id}`, {
+  return fetch(`${configBackend}events`, {
     credentials: "include",
     method: "PUT",
     headers: {
@@ -67,7 +74,7 @@ export function deleteEventEndpoint(eventId: number): Promise<void> {
 }
 
 export function getUserEndpoint(): Promise<void> {
-  return fetch(`${configBackend}auth/user`, {
+  return fetch(`${configBackend}user`, {
     credentials: "include",
   }).then(handleResponse);
 }
@@ -83,6 +90,21 @@ export function signInEndpoint(
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ email, password }),
+  }).then(handleResponse);
+}
+
+export function createUserEndpoint(
+  email: string,
+  password: string,
+  name: string
+): Promise<void> {
+  return fetch(`${configBackend}user/createUser`, {
+    credentials: "include",
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email, password, name }),
   }).then(handleResponse);
 }
 

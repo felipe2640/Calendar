@@ -3,31 +3,41 @@ import Box from "@mui/material/Box";
 import Alert from "@mui/material/Alert";
 import { useState } from "react";
 import Button from "@mui/material/Button";
-import { IUser, signInEndpoint } from "./../Helpers/backend";
+import { createUserEndpoint } from "../Helpers/backend";
 
-interface ILoginScreenProps {
-  onSignIn: (user: IUser) => void;
+interface ICreateScreenProps {
+  onCreateIn: () => void;
 }
 
-function LoginScreen(props: ILoginScreenProps) {
+function CreateScreen(props: ICreateScreenProps) {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  function signIn(evt: React.FormEvent) {
+  function createIn(evt: React.FormEvent) {
     evt.preventDefault();
     // console.log(email, password);
-    signInEndpoint(email, password).then(props.onSignIn, (e) => {
-      setError(
-        "E-mail não encontrado ou senha incorreta. Tente email: felipe@email.com password: 1234"
-      );
-      console.error({ e });
+    createUserEndpoint(email, password, name).then(props.onCreateIn, (e) => {
+      setError(`${e}`);
+      console.error(e);
     });
   }
   return (
-    <form onSubmit={signIn}>
+    <form onSubmit={createIn}>
       <TextField
         autoFocus
+        margin="normal"
+        label="Nomes"
+        type={"name"}
+        value={name}
+        onChange={(evt) => setName(evt.target.value)}
+        fullWidth
+        variant="outlined"
+        // error={!!errors.desc}
+        // helperText={errors.desc}
+      />
+      <TextField
         margin="normal"
         label="E-mail"
         type={"email"}
@@ -54,13 +64,13 @@ function LoginScreen(props: ILoginScreenProps) {
           {error}
         </Alert>
       )}
-      <Box sx={{ textAlign: "end", marginTop: 4, marginLeft: 3 }}>
+      <Box sx={{ textAlign: "end", marginTop: 4 }}>
         <Button type="submit" variant="contained">
-          Entrar
+          Criar
         </Button>
       </Box>
     </form>
   );
 }
 
-export default LoginScreen;
+export default CreateScreen;
