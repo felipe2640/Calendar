@@ -1,104 +1,37 @@
-const hasAuth = process.argv[2] !== "noauth";
-
-import fs from "fs";
 import bodyParser from "body-parser";
 import jsonServer from "json-server";
+import morgan from "morgan";
 import session from "express-session";
-import * as dotenv from "dotenv";
-import { iEnv, iUSer } from "./models/models";
+import cors from "cors";
 
-const server = jsonServer.create();
-const router = jsonServer.router(__dirname + "/json/db.json");
-const userdb = JSON.parse(
-  fs.readFileSync(__dirname + "/json/users.json", { encoding: "utf-8" })
-);
+import App from "./app.config";
+import AuthController from "./Controllers/auth.controller";
+import CalendarController from "./Controllers/Callendar.controller";
+import EventsController from "./Controllers/events.controller";
+import UserController from "./Controllers/user.controller";
 
-dotenv.config({ path: __dirname + "./../.env" });
-server.use(jsonServer.defaults());
-server.use(bodyParser.urlencoded({ extended: true }));
-server.use(bodyParser.json());
-
-server.get("/calendar/:month", function (req, res) {
-  res.sendFile(__dirname + "/public/index.html");
+const app = new App({
+  port: process.env.PORT!,
+  middlewares: [
+    morgan("dev"),
+    cors({
+      origin: `${process.env.CORS_URL}`,
+      credentials: true,
+    }),
+    bodyParser.urlencoded({ extended: false }),
+    bodyParser.json(),
+    session({
+      secret: `${process.env.SECRET_KEY}`,
+      resave: false,
+      saveUninitialized: false /*, cookie: {maxAge: 5000}*/,
+    }),
+  ],
+  controllers: [
+    new AuthController(),
+    new CalendarController(),
+    new EventsController(),
+    new UserController(),
+  ],
 });
 
-server.use(
-  session({
-    secret: `${process.env.SECRET_KEY}`,
-    resave: false,
-    saveUninitialized: false /*, cookie: {maxAge: 5000}*/,
-  })
-);
-
-// Check if the user exists in database
-function findUser({ email, password }: iUSer) {
-  return userdb.users.find(
-    (user: any) => user.email === email && user.password === password
-  );
-}
-
-server.post("/auth/login", (req, res) => {
-  const { email, password } = req.body;
-  const user = findUser({ email, password });
-  if (!user) {
-    const status = 401;
-    const message = "Incorrect email or password";
-    res.status(status).json({ status, message });
-  } else {
-    req.session.user = { name: user.name, email: user.email };
-    res.status(200).json(req.session.user);
-  }
-});
-
-server.get("/auth/user", (req, res) => {
-  if (req.session.user) {
-    res.status(200).json(req.session.user);
-  } else {
-    res.status(401).json({ status: 401, message: "Not authenticated" });
-  }
-});
-
-server.post("/auth/logout", (req, res) => {
-  if (req.session.user) {
-    req.session.destroy(function (err) {
-      res.status(200).json({ message: "Signed out" });
-    });
-  } else {
-    res.status(401).json({ status: 401, message: "Not authenticated" });
-  }
-});
-
-if (hasAuth) {
-  server.use(/^(?!\/auth).*$/, (req, res, next) => {
-    if (!req.session.user) {
-      const status = 401;
-      res.status(status).json({ status, message: "Not authenticated" });
-      return;
-    } else {
-      next();
-    }
-  });
-}
-
-server.use(router);
-
-// const app = new App({
-//   port: "8080",
-//   middlewares: [
-//     jsonServer.defaults(),
-//     bodyParser.urlencoded({ extended: true }),
-//     bodyParser.json(),
-//     session({
-//       secret: "123456",
-//       resave: false,
-//       saveUninitialized: false /*, cookie: {maxAge: 5000}*/,
-//     }),
-//   ],
-//   controllers: [],
-// });
-
-// app.listen();
-
-server.listen(process.env.PORT, () => {
-  console.log(`Servidor inicializado, auth=${hasAuth}`);
-});
+app.listen();
