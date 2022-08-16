@@ -15,10 +15,10 @@
   <thead>
     <tr>
       <th align="center">
-        <a href="" rel="nofollow"><strong>Desktop</strong></a>
+        <a href="" rel="nofollow"><strong>Calendar</strong></a>
       </th>
       <th align="center">
-        <a href="" rel="nofollow"><strong>Mobile</strong></a>
+        <a href="" rel="nofollow"><strong>Login</strong></a>
       </th>
     </tr>
   </thead>
