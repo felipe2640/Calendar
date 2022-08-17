@@ -1,6 +1,6 @@
-![GitHub repo size](https://img.shields.io/github/repo-size/felipe2640/Dashboard_RH?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/felipe2640/Dashboard_RH?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/felipe2640/Dashboard_RH?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/felipe2640/Calendar?style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/felipe2640/Calendar?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/felipe2640/Calendar?style=for-the-badge)
 
 <h1 align="center">Calendar with react</h1>
 
