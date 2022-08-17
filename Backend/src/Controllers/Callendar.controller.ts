@@ -2,7 +2,7 @@ import * as express from "express";
 import { Request, Response } from "express";
 
 import CalendarService from "../Services/Calendar.service";
-import adminAuth from "../Middleware/auth.middleware";
+import adminAuth from "../Middleware/Auth.middleware";
 
 export default class CalendarController {
   public router = express.Router();

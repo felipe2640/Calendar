@@ -5,10 +5,10 @@ import session from "express-session";
 import cors from "cors";
 
 import App from "./app.config";
-import AuthController from "./Controllers/auth.controller";
+import AuthController from "./Controllers/Auth.controller";
 import CalendarController from "./Controllers/Callendar.controller";
-import EventsController from "./Controllers/events.controller";
-import UserController from "./Controllers/user.controller";
+import EventsController from "./Controllers/Events.controller";
+import UserController from "./Controllers/User.controller";
 
 const app = new App({
   port: process.env.PORT!,

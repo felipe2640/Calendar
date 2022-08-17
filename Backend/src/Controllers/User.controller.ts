@@ -1,7 +1,7 @@
 import * as express from "express";
 import { Request, Response } from "express";
 
-import AdminAuth from "../Middleware/auth.middleware";
+import AdminAuth from "../Middleware/Auth.middleware";
 import AuthService from "../Services/Auth.service";
 
 export default class UserController {
