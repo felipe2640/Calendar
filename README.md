@@ -4,10 +4,8 @@
 
 <h1 align="center">Calendar</h1>
 
-# Tabela de conteúdos
-
 <h4 align="center"> 
-	🚧  React 🚀 Em construction...  🚧
+	🚧  React 🚀 Construction...  🚧
 </h4>
 <!-- Image -->
 
@@ -52,35 +50,19 @@
 
 > Project Calendar.
 
-### 🎲 Play in Back End (Server)
+### 🎲 Play in application 
 
 ```bash
 # Clone this repositories
 $ git clone <https://github.com/felipe2640/Calendar-with-react.git>
 
 # Access the project folder in terminal/cmd
-$ cd Calendar-with-react/Backend
+$ cd Calendar-with-react
 
-# Install the dependencies
-$ npm install
-
-#Run the application in development mode
-$ npm run dev
+#Run the application in development mode with Docker
+$  docker compose up
 ```
 
-### 🎲 Play in Front End (Server)
-
-```bash
-
-# Access the project folder in terminal/cmd
-$ cd Calendar-with-react/Web
-
-# Install the dependencies
-$ npm install
-
-#Run the application in development mode
-$ npm run dev
-```
 
 # https://calendar-with-react.vercel.app/
 
