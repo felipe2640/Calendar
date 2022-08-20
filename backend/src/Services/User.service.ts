@@ -13,9 +13,10 @@ export class UsersService {
   }: {
     email: string;
   }): Promise<ICreateUser | undefined> {
-    const user = await this.prismaService
-      .Users({ email })
-      .then((value: any) => value);
+    const user = await this.prismaService.Users({ email }).then(
+      (value: any) => value,
+      (err: any) => console.log(err)
+    );
     return user;
   }
   async eventsUSer({
@@ -23,9 +24,10 @@ export class UsersService {
   }: {
     email: string;
   }): Promise<IEvent[] | undefined> {
-    const eventsUser = await this.prismaService
-      .Events({ email })
-      .then((value: any) => value);
+    const eventsUser = await this.prismaService.Events({ email }).then(
+      (value: any) => value,
+      (err: any) => console.log(err)
+    );
     return eventsUser;
   }
   async calendarsUSer({
@@ -33,15 +35,17 @@ export class UsersService {
   }: {
     email: string;
   }): Promise<ICalendar[] | undefined> {
-    const userCalendar = await this.prismaService
-      .Calendars({ email })
-      .then((value: any) => value);
+    const userCalendar = await this.prismaService.Calendars({ email }).then(
+      (value: any) => value,
+      (err: any) => console.log(err)
+    );
     return userCalendar;
   }
   async createOne({ CreateUser }: { CreateUser: ICreateUser }): Promise<any> {
-    const user = await this.prismaService
-      .CreateUser(CreateUser)
-      .then((value: any) => value);
+    const user = await this.prismaService.CreateUser(CreateUser).then(
+      (value: any) => value,
+      (err: any) => console.log(err)
+    );
     return user;
   }
 }
