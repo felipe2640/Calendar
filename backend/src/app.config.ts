@@ -14,7 +14,7 @@ export default class App {
   public listen() {
     this.app.listen(this.port, () =>
       console.log(
-        `Express has been started http://localhost:${process.env.PORT} e cors ${process.env.CORS_URL} `
+        `Express has been started http://localhost:${process.env.PORT}  e cors ${process.env.CORS_URL} `
       )
     );
   }
