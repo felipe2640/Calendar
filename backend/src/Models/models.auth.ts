@@ -29,7 +29,7 @@ export interface IEditingEvent {
   date: string;
   time?: string;
   desc: string;
-  calendarId: number;
+  calendarId: string;
 }
 
 export interface IEvent extends IEditingEvent {
