@@ -64,12 +64,8 @@ $  docker compose up
 ```
 
 
-# https://calendar-with-react.vercel.app/
-
-To login use:
-
-email: felipe@email.com
-password: 1234
+# https://calendar-with-react.vercel.app/ 
+# Deployments Paused in back end in railway app
 
 ### Author
 
