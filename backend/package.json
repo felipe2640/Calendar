@@ -42,7 +42,7 @@
     "watch": [
       "src"
     ],
-    "exec": "ts-node ./src/server.ts",
+    "exec": "ts-node ./server.ts",
     "ext": "ts, js"
   }
 }
