@@ -8,6 +8,6 @@ RUN npm install
 
 COPY . .
 
-CMD [ "node", "/home/node/app/src/server.ts" ]
+CMD [ "node", "/home/node/app/server.ts" ]
 
 
