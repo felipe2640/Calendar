@@ -66,7 +66,7 @@ export function updateEventEndpoint(event: IEditingEvent): Promise<IEvent> {
   }).then(handleResponse);
 }
 
-export function deleteEventEndpoint(eventId: number): Promise<void> {
+export function deleteEventEndpoint(eventId: string): Promise<void> {
   return fetch(`${configBackend}events/${eventId}`, {
     credentials: "include",
     method: "DELETE",
