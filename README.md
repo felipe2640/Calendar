@@ -63,8 +63,8 @@ $ cd Calendar-with-react
 $  docker compose up
 ```
 
-
-# Deployments Paused in back end in railway app
+## Deploy Vercel and Railway
+## https://calendar-with-react.vercel.app/ 
 
 ### Author
 
