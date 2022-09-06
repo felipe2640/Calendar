@@ -6,6 +6,8 @@
   "scripts": {
     "start-noauth": "ts-node ./src/server.ts noauth",
     "start": "nodemon",
+    "start:prod": "node dist/index.js",
+    "start:migrate:prod": "prisma migrate deploy && npm run start:prod",
     "dev": "nodemon"
   },
   "author": "",

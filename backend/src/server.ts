@@ -4,11 +4,11 @@ import morgan from "morgan";
 import session from "express-session";
 import cors from "cors";
 
-import App from "./src/app.config";
-import AuthController from "./src/Controllers/Auth.controller";
-import CalendarController from "./src/Controllers/Callendar.controller";
-import EventsController from "./src/Controllers/Events.controller";
-import UserController from "./src/Controllers/User.controller";
+import App from "./app.config";
+import AuthController from "./Controllers/Auth.controller";
+import CalendarController from "./Controllers/Callendar.controller";
+import EventsController from "./Controllers/Events.controller";
+import UserController from "./Controllers/User.controller";
 
 const app = new App({
   port: process.env.PORT!,

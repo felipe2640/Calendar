@@ -1,16 +1,26 @@
-FROM node:14.17.0-slim
+FROM node:14.17.0-slim AS builder
 
-RUN apt update && apt install -y wget netcat git
+# Create app directory
+WORKDIR /app
 
-#usuario root
-RUN wget -q -O /usr/bin/wait-for https://raw.githubusercontent.com/eficode/wait-for/v2.2.3/wait-for && \
-    chmod +x /usr/bin/wait-for
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+COPY package*.json ./
+COPY prisma ./prisma/
 
-WORKDIR /usr/node/app
-
-COPY . /usr/node/app
-
+# Install app dependencies
 RUN npm install
 
+COPY . .
 
+RUN npm run build
 
+FROM node:14
+
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/prisma ./prisma
+
+EXPOSE 8085
+# 👇 new migrate and start app script
+CMD [  "npm", "run", "start:migrate:prod" ]
