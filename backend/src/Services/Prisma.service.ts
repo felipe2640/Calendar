@@ -159,12 +159,12 @@ export default class PrismaService {
       );
   }
 
-  // async Middleware() {
-  //   prisma.$use(async (params, next) => {
-  //     // Manipulate params here
-  //     const result = await next(params);
-  //     // See results here
-  //     return result;
-  //   });
-  // }
+  async Middleware() {
+    prisma.$use(async (params:any, next:any) => {
+      // Manipulate params here
+      const result = await next(params);
+      // See results here
+      return result;
+    });
+  }
 }
