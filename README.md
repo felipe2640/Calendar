@@ -64,7 +64,6 @@ $  docker compose up
 ```
 
 
-# https://calendar-with-react.vercel.app/ 
 # Deployments Paused in back end in railway app
 
 ### Author
