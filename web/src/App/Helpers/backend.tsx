@@ -1,19 +1,19 @@
 export interface ICalendar {
-  id: number;
+  id: string;
   name: string;
   color: string;
 }
 
 export interface IEditingEvent {
-  id?: number;
+  id?: string;
   date: string;
   time?: string;
   desc: string;
-  calendarId: number;
+  calendarId: string;
 }
 
 export interface IEvent extends IEditingEvent {
-  id: number;
+  id: string;
 }
 
 export interface IUser {
