@@ -137,7 +137,7 @@ export default function EventFormDialog(props: IEventForDialogProps) {
                     onChange={(evt) =>
                       setEvent({
                         ...event,
-                        calendarId: evt.target.value as number,
+                        calendarId: evt.target.value as string,
                       })
                     }
                   >
