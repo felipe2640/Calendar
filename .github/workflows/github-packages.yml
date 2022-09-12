@@ -7,6 +7,9 @@ on:
     branches: [ "master" ]
   workflow_dispatch:
   
+defaults:
+   run:
+    working-directory: ./backend
 permissions:
   contents: read
   packages: write
@@ -15,9 +18,7 @@ jobs:
   
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./backend
+   
 
     steps:
       - uses: actions/checkout@v3
@@ -41,5 +42,5 @@ jobs:
         with:
           push: true
           tags: ghcr.io/${{ env.REPO }}:${{ github.sha }}
-          file: .Dockerfile
-          
+          file: ./backend/Dockerfile
+          working-directory: ./backend
