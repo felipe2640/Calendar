@@ -15,7 +15,9 @@ jobs:
   
   build:
     runs-on: ubuntu-latest
-    
+    defaults:
+      run:
+        working-directory: ./backend
 
     steps:
       - uses: actions/checkout@v3
@@ -40,4 +42,4 @@ jobs:
           push: true
           tags: ghcr.io/${{ env.REPO }}:${{ github.sha }}
           file: ./backend/Dockerfile
-          working-directory: ./backend
+          
