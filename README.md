@@ -63,7 +63,7 @@ $ cd Calendar-with-react
 $  docker compose up
 ```
 
-## Deploy Vercel and Railway
+## Deploy Vercel front-end
 ## https://calendar-with-react.vercel.app/ 
 
 ### Author
